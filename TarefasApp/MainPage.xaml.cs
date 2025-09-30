@@ -2,24 +2,35 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
+
+            tarefasCollectionView.ItemsSource = TarefaRepository.Tarefas;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            count++;
+            base.OnAppearing();
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            tarefasCollectionView.ItemsSource = null;
+            var tarefasOrdenadas = TarefaRepository.Tarefas.OrderByDescending(t => t.Prioridade).ToList();
+            tarefasCollectionView.ItemsSource = tarefasOrdenadas;
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void OnAdicionarClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AdicionarEditarTarefaPage(null));
+        }
+
+        private async void OnTarefaSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection.FirstOrDefault() is Tarefa tarefaSelecionada)
+            {
+                await Navigation.PushAsync(new DetalhesTarefaPage(tarefaSelecionada));
+
+                ((CollectionView)sender).SelectedItem = null;
+            }
         }
     }
-
 }
