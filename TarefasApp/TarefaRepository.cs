@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿// Desenvolvido por Beatriz Bastos Borges
+
+using System.Collections.ObjectModel;
 
 namespace TarefasApp
 {

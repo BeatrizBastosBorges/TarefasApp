@@ -1,3 +1,5 @@
+// Desenvolvido por Beatriz Bastos Borges
+
 namespace TarefasApp;
 
 public partial class DetalhesTarefaPage : ContentPage

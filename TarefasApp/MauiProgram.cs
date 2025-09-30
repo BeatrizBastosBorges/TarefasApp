@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// Desenvolvido por Beatriz Bastos Borges
+
+using Microsoft.Extensions.Logging;
 
 namespace TarefasApp
 {

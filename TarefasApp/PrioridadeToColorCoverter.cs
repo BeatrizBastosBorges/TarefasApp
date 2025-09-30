@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿// Desenvolvido por Beatriz Bastos Borges
+
+using System.Globalization;
 
 namespace TarefasApp
 {

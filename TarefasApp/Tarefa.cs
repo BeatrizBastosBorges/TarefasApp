@@ -1,4 +1,6 @@
-﻿namespace TarefasApp
+﻿// Desenvolvido por Beatriz Bastos Borges
+
+namespace TarefasApp
 {
     public class Tarefa
     {
